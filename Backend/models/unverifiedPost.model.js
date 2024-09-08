@@ -1,26 +1,22 @@
 import mongoose from "mongoose";
-const userSchema = new mongoose.Schema(
+const unverifiedPostSchema = new mongoose.Schema(
   {
-    name: {
+    postedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    title: {
       type: String,
       required: true,
     },
-    dob: {
+    description: {
       type: String,
       required: true,
     },
     contact: {
       type: String,
       required: true,
-    },
-    aadhaar: {
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 6,
     },
     city: {
       type: String,
@@ -34,18 +30,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    gender: {
-      type: String,
-      required: true,
-      enum: ["male", "female"],
-    },
-    civicCredits: {
-      type: Number,
-      required: true,
-    },
+    images: [{ type: mongoose.Schema.Types.ObjectId, ref: "Image" }],
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
-export default User;
+const unverifiedPost = mongoose.model("unverifiedPost", unverifiedPostSchema);
+export default unverifiedPost;

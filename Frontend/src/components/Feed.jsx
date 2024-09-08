@@ -5,7 +5,6 @@ import PostCard from "./PostCard";
 
 function Feed() {
   const { posts } = useGetPosts();
-  console.log(posts);
   return (
     <div className="w-full p-4 flex flex-wrap items-start justify-start">
       {posts?.posts.map((post) => (

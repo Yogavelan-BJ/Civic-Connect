@@ -9,13 +9,52 @@ import Feed from "./components/Feed";
 import Profile from "./components/Profile";
 import PostForm from "./components/PostForm";
 import Dashboard from "./pages/Dashboard";
+import ApprovePosts from "./pages/ApprovePosts";
+import ViewUnverifiedPost from "./pages/ViewUnverifiedPost";
 function App() {
   const { authUser } = useAuthContext();
   return (
     <div className="h-screen flex justify-center items-center">
       <Routes>
         <Route path="/" element={<Welcome />} />
-
+        <Route
+          path="/login"
+          element={
+            authUser?.name == "admin" ? (
+              <Navigate to="/dashboard" />
+            ) : authUser ? (
+              <Navigate to="/home" />
+            ) : (
+              <Login />
+            )
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            authUser?.name == "admin" ? (
+              <Navigate to="/dashboard" />
+            ) : authUser ? (
+              <Navigate to="/home" />
+            ) : (
+              <Signup />
+            )
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            authUser?.name == "admin" ? <Dashboard /> : <Navigate to="/home" />
+          }
+        >
+          <Route path="/dashboard/users" element={<h1>users dash</h1>} />
+          <Route path="/dashboard/approve-posts" element={<ApprovePosts />} />
+          <Route
+            path="/dashboard/approve-work"
+            element={<h1>approve work</h1>}
+          />
+          <Route path="/dashboard/view-post" element={<ViewUnverifiedPost />} />
+        </Route>
         <Route
           path="/home"
           element={authUser ? <Home /> : <Navigate to="/login" />}
@@ -24,14 +63,6 @@ function App() {
           <Route path="/home/profile" element={<Profile />} />
           <Route path="/home" element={<Feed />} />
         </Route>
-        <Route
-          path="/login"
-          element={authUser ? <Navigate to="/home" /> : <Login />}
-        />
-        <Route
-          path="/signup"
-          element={authUser ? <Navigate to="/home" /> : <Signup />}
-        />
       </Routes>
     </div>
   );

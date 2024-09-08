@@ -36,6 +36,7 @@ export const signup = async (req, res) => {
           contact,
           aadhaar,
           password: hashedPassword,
+          civicCredits: 0,
         });
         if (newUser) {
           generateTokenAndSetCookie(newUser._id, res);
@@ -50,6 +51,7 @@ export const signup = async (req, res) => {
             city: newUser.city,
             pincode: newUser.pincode,
             gender: newUser.gender,
+            civicCredits: newUser.civicCredits,
             profilePic: newUser.profilePic,
           });
         }
@@ -89,6 +91,7 @@ export const login = async (req, res) => {
         city: user.city,
         pincode: user.pincode,
         contact: user.contact,
+        civicCredits: user.civicCredits,
         aadhaar: user.aadhaar,
       });
     }
