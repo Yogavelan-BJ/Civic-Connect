@@ -29,6 +29,7 @@ const PostForm = () => {
     // Here you can send the data to your backend using fetch or axios
     console.log("Form Data:", inputs);
     post(inputs);
+    nav("/home")
   };
 
   return (
@@ -65,7 +66,7 @@ const PostForm = () => {
 
         <ImageUploader onImagesChange={handleImagesChange} />
             <div className="w-full flex items-center justify-center">
-        <button onClick={()=>(nav("/home"))} className="h-12 w-24 my-2 bg-blue-300 rounded-lg mx-2 " >Submit</button>
+        <button onClick={handleSubmit} className="h-12 w-24 my-2 bg-blue-300 rounded-lg mx-2 " >Submit</button>
         </div>
       </form>
     </div>

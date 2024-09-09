@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import useWork from "../hooks/useWork";
 import ImageUploader from "../components/ImageUploader";
+import { useNavigate } from "react-router-dom";
 
 function SubmitWork() {
+
+  const nav =useNavigate()
   const { loading, submitWork } = useWork();
   const [inputs, setInputs] = useState({
     description: "",
@@ -18,6 +21,7 @@ function SubmitWork() {
   const handleSubmit = (e) => {
     e.preventDefault();
     submitWork(inputs);
+    nav("/home")
   };
 
   return (

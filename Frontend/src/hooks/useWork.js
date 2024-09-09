@@ -27,10 +27,10 @@ const useWork = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
       if (data.error) {
         throw new Error(data.error);
       }
+      toast.success("Waiting for approval")
     } catch (error) {
       toast.error(error.message);
     } finally {

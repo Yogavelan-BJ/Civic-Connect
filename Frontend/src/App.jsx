@@ -50,7 +50,7 @@ function App() {
             authUser?.name == "admin" ? <Dashboard /> : <Navigate to="/home" />
           }
         >
-          <Route path="/dashboard/users" element={<h1>users dash</h1>} />
+          <Route path="/dashboard/users" element={<h1>manage users to be implemented</h1>} />
           <Route path="/dashboard/approve-posts" element={<ApprovePosts />} />
           <Route path="/dashboard/approve-work" element={<ApproveWork />} />
           <Route path="/dashboard/view-post" element={<ViewUnverifiedPost />} />
