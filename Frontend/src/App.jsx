@@ -17,7 +17,7 @@ import ApproveWork from "./pages/ApproveWork";
 function App() {
   const { authUser } = useAuthContext();
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className=" flex justify-center items-center">
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route

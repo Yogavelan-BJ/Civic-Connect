@@ -30,9 +30,10 @@ const ImageUploader = ({ onImagesChange }) => {
   };
 
   return (
-    <div>
-      <h3 className="text-1xl">Upload Images</h3>
+    <div className="mx-1 flex w-full">
+      <h2 className="text-1xl w-40 my-2 mx-2">Upload:</h2>
       <input
+      className="mx-2"
         type="file"
         multiple
         accept="image/*"

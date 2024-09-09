@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import ImageUploader from "./ImageUploader"; // Import the child image upload component
 import usePost from "../hooks/usePost";
 import SelectLocation from "./SelectLocation";
+import { useNavigate } from "react-router-dom";
 
 const PostForm = () => {
+  const nav = useNavigate()
   const { loading, post } = usePost();
   const [inputs, setInputs] = useState({
     title: "",
@@ -54,7 +56,7 @@ const PostForm = () => {
         <SelectLocation inputs={inputs} setInputs={setInputs} />
 
         <input
-          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+          className="text-sm w-full px-4 py-2 my-4 border border-solid border-gray-300 rounded mt-4"
           type="text"
           placeholder="Contact"
           value={inputs.contact}
@@ -62,8 +64,9 @@ const PostForm = () => {
         />
 
         <ImageUploader onImagesChange={handleImagesChange} />
-
-        <button type="submit">Submit</button>
+            <div className="w-full flex items-center justify-center">
+        <button onClick={()=>(nav("/home"))} className="h-12 w-24 my-2 bg-blue-300 rounded-lg mx-2 " >Submit</button>
+        </div>
       </form>
     </div>
   );

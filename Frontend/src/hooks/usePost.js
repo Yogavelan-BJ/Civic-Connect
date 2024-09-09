@@ -47,6 +47,7 @@ const usePost = () => {
       if (data.error) {
         throw new Error(data.error);
       }
+      toast.success("Post sent for Verification")
     } catch (error) {
       toast.error(error.message);
     } finally {
