@@ -5,6 +5,7 @@ import useApprovePost from "../hooks/useApprovePost";
 
 function ViewUnverifiedPost() {
   const { selectedUnverifiedPost } = usePostContext();
+
   const { loading, approve } = useApprovePost();
   return (
     <div className="w-full flex-col m-4 p-4 justify-center items-center">

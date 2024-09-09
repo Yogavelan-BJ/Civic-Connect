@@ -11,6 +11,9 @@ import PostForm from "./components/PostForm";
 import Dashboard from "./pages/Dashboard";
 import ApprovePosts from "./pages/ApprovePosts";
 import ViewUnverifiedPost from "./pages/ViewUnverifiedPost";
+import ViewPost from "./pages/ViewPost";
+import SubmitWork from "./pages/SubmitWork";
+import ApproveWork from "./pages/ApproveWork";
 function App() {
   const { authUser } = useAuthContext();
   return (
@@ -49,10 +52,7 @@ function App() {
         >
           <Route path="/dashboard/users" element={<h1>users dash</h1>} />
           <Route path="/dashboard/approve-posts" element={<ApprovePosts />} />
-          <Route
-            path="/dashboard/approve-work"
-            element={<h1>approve work</h1>}
-          />
+          <Route path="/dashboard/approve-work" element={<ApproveWork />} />
           <Route path="/dashboard/view-post" element={<ViewUnverifiedPost />} />
         </Route>
         <Route
@@ -61,6 +61,8 @@ function App() {
         >
           <Route path="/home/post" element={<PostForm />} />
           <Route path="/home/profile" element={<Profile />} />
+          <Route path="/home/view-post" element={<ViewPost />} />
+          <Route path="/home/submit-work" element={<SubmitWork />} />
           <Route path="/home" element={<Feed />} />
         </Route>
       </Routes>

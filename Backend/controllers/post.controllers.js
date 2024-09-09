@@ -38,7 +38,7 @@ export const post = async (req, res) => {
 
 export const getPosts = async (req, res) => {
   try {
-    let posts = await Post.find().populate("images");
+    let posts = await Post.find().populate(["images", "postedBy"]);
     if (!posts) {
       return res.status(200).json([]);
     }

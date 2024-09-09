@@ -17,6 +17,8 @@ function Feed() {
           state={post.state}
           pincode={post.pincode}
           createdAt={post.createdAt}
+          postedBy={post.postedBy}
+          postID={post._id}
         />
       ))}
     </div>

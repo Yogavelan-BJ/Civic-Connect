@@ -5,12 +5,15 @@ import { AuthContextProvider } from "./context/authContext.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { PostContextProvider } from "./context/postContext.jsx";
+import { WorkContextProvider } from "./context/workContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <AuthContextProvider>
       <PostContextProvider>
-        <App />
+        <WorkContextProvider>
+          <App />
+        </WorkContextProvider>
       </PostContextProvider>
     </AuthContextProvider>
     <Toaster />

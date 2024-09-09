@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { usePostContext } from "../context/postContext";
 
 function PostCard({
   title,
@@ -9,12 +11,31 @@ function PostCard({
   city,
   state,
   pincode,
+  postedBy,
+  postID,
 }) {
+  const nav = useNavigate();
+  const { setSelectedPost } = usePostContext();
   const formattedDate = new Date(createdAt).toLocaleDateString("en-IN", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
+  const handleClick = () => {
+    setSelectedPost({
+      title,
+      description,
+      contact,
+      images,
+      createdAt,
+      city,
+      state,
+      pincode,
+      postedBy,
+      postID,
+    });
+    nav("/home/view-post");
+  };
   return (
     <div className="max-w-sm mx-4 bg-white shadow-md rounded-lg overflow-hidden my-4">
       {/* Image section */}
@@ -49,7 +70,10 @@ function PostCard({
 
         {/* Action buttons */}
         <div className="flex mt-4">
-          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            onClick={handleClick}
+          >
             View Details
           </button>
         </div>

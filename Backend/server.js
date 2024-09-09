@@ -5,6 +5,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
 import postRoutes from "./routes/post.routes.js";
+import workRoutes from "./routes/work.routes.js";
 import connectToMongoDB from "./DB/connectToMongoDB.js";
 
 config();
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/post", postRoutes);
+app.use("/api/work", workRoutes);
 
 app.get("*", (req, res) => {
   res.send(path.join(__dirname, "frontend", "dist", "index.html"));
