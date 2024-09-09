@@ -14,6 +14,7 @@ import ViewUnverifiedPost from "./pages/ViewUnverifiedPost";
 import ViewPost from "./pages/ViewPost";
 import SubmitWork from "./pages/SubmitWork";
 import ApproveWork from "./pages/ApproveWork";
+import Statistics from "./pages/Statistics";
 function App() {
   const { authUser } = useAuthContext();
   return (
@@ -51,6 +52,7 @@ function App() {
           }
         >
           <Route path="/dashboard/users" element={<h1>users dash</h1>} />
+          <Route path="/dashboard" element={<Statistics/>} />
           <Route path="/dashboard/approve-posts" element={<ApprovePosts />} />
           <Route path="/dashboard/approve-work" element={<ApproveWork />} />
           <Route path="/dashboard/view-post" element={<ViewUnverifiedPost />} />

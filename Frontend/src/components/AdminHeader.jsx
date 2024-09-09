@@ -17,22 +17,23 @@ function AdminHeader() {
       </div>
       <div className="flex-none gap-2">
         <button
-          className="text-red-700 "
+          className="text-red-700 border-2 border-red-700 rounded-lg  p-2  hover:bg-slate-300 "
+          
           onClick={() => nav("/dashboard/users")}
         >
           Users
         </button>
         <button
-          className="text-red-700 "
+          className="text-red-700 border-2 border-red-700 rounded-lg  p-2  hover:bg-slate-300 "
           onClick={() => nav("/dashboard/approve-work")}
         >
-          approve-work
+          Approve-work
         </button>
         <button
-          className="text-red-700 "
+          className="text-red-700 border-2 border-red-700 rounded-lg  p-2  hover:bg-slate-300 "
           onClick={() => nav("/dashboard/approve-posts")}
         >
-          approve-posts
+          Approve-posts
         </button>
         <div className="dropdown dropdown-end">
           <div
